@@ -1,4 +1,4 @@
-package com.kaushal.galleryapp
+package com.kaushal.galleryapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.MenuProvider
+import com.kaushal.galleryapp.R
 
 class MainActivity : AppCompatActivity() , MenuProvider {
 
@@ -30,11 +31,13 @@ class MainActivity : AppCompatActivity() , MenuProvider {
                 if(isListViewSelected) {
                     switchViews("grid")
                     isListViewSelected = false
-                    menu.getItem(0).icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_grid, null)
+                    menu.getItem(0).icon = ResourcesCompat.getDrawable(resources,
+                        R.drawable.ic_grid, null)
                 } else {
                     switchViews("list")
                     isListViewSelected = true
-                    menu.getItem(0).icon = ResourcesCompat.getDrawable(resources, R.drawable.ic_list, null)
+                    menu.getItem(0).icon = ResourcesCompat.getDrawable(resources,
+                        R.drawable.ic_list, null)
                 }
                 return true
             }
