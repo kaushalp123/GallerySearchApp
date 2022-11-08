@@ -42,3 +42,11 @@ are inside the respective fragments. The api call is made using coroutines insid
 
 ### Note
 UI design is given less importance here in this project as this is a test project, so UI may not look great.
+
+
+![Screenshot_2022-11-09-01-21-18-54_beffa72e0abb8f775d19f56520fc1bbc](https://user-images.githubusercontent.com/10626133/200662117-6291bf59-5c11-40e2-b8f9-6ec2f63462bf.jpg)
+
+![Screenshot_2022-11-09-01-21-32-90_beffa72e0abb8f775d19f56520fc1bbc](https://user-images.githubusercontent.com/10626133/200662136-4ca2f1b3-be82-424a-8a73-5cc9a4b50354.jpg)
+
+![Screenshot_2022-11-09-01-21-37-35_beffa72e0abb8f775d19f56520fc1bbc](https://user-images.githubusercontent.com/10626133/200662157-241b54c8-f887-4b37-8353-7f777212f17a.jpg)
+
