@@ -1,43 +1,12 @@
 package com.kaushal.galleryapp.data.model
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class Image(
-    @field:Json(name = "account_id") val account_id: Any,
-    @field:Json(name = "account_url") val account_url: Any,
-    @field:Json(name = "ad_type") val ad_type: Int,
-    @field:Json(name = "ad_url") val ad_url: String,
-    @field:Json(name = "animated") val animated: Boolean,
-    @field:Json(name = "bandwidth") val bandwidth: Long,
-    @field:Json(name = "comment_count") val comment_count: Any,
-    @field:Json(name = "datetime") val datetime: Int,
-    @field:Json(name = "description") val description: String,
-    @field:Json(name = "downs") val downs: Any,
-    @field:Json(name = "edited") val edited: String,
-    @field:Json(name = "favorite") val favorite: Boolean,
-    @field:Json(name = "favorite_count") val favorite_count: Any,
-    @field:Json(name = "gifv") val gifv: String,
-    @field:Json(name = "has_sound") val has_sound: Boolean,
-    @field:Json(name = "height") val height: Int,
-    @field:Json(name = "hls") val hls: String,
-    @field:Json(name = "id") val id: String,
-    @field:Json(name = "in_gallery") val in_gallery: Boolean,
-    @field:Json(name = "in_most_viral") val in_most_viral: Boolean,
-    @field:Json(name = "is_ad") val is_ad: Boolean,
-    @field:Json(name = "link") val link: String,
-    @field:Json(name = "mp4") val mp4: String,
-    @field:Json(name = "mp4_size") val mp4_size: Int,
-    @field:Json(name = "nsfw") val nsfw: Any,
-    @field:Json(name = "points") val points: Any,
-    @field:Json(name = "processing") val processing: Processing,
-    @field:Json(name = "score") val score: Any,
-    @field:Json(name = "section") val section: Any,
-    @field:Json(name = "size") val size: Int,
-    @field:Json(name = "tags") val tags: List<Any>,
-    @field:Json(name = "title") val title: Any,
-    @field:Json(name = "type") val type: String,
-    @field:Json(name = "ups") val ups: Any,
-    @field:Json(name = "views") val views: Int,
-    @field:Json(name = "vote") val vote: Any,
-    @field:Json(name = "width") val width: Int
+    @field:Json(name = "datetime") val datetime: Long?,
+    @field:Json(name = "link") val link: String?,
+    @field:Json(name = "title") val title: Any?,
+    @field:Json(name = "type") val type: String?
 )

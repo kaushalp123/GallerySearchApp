@@ -4,6 +4,6 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Processing(
-    @field:Json(name = "status")  val status: String
+data class ImageResponse(
+    @field:Json(name = "data") val data: List<Data>
 )

@@ -1,7 +1,9 @@
 package com.kaushal.galleryapp.data.model
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 data class Tag(
     @field:Json(name = "accent") val accent: String,
     @field:Json(name = "background_hash") val background_hash: String,
