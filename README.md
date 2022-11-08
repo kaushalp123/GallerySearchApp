@@ -40,3 +40,5 @@ ThreeTen-Backport provides a backport of the Java SE 8 date-time classes to Java
 I have followed the single activity multiple fragment approach in this project, the search bar and the search button is in a main activity and the grid view and list view display of the images 
 are inside the respective fragments. The api call is made using coroutines inside the main activity and the state flow inside the view model gets the result and the two fragments uses observables which collects the result and display the results on the UI.
 
+###Note
+UI design is given less importance here in this project as this is a test project, so UI may not look great.
