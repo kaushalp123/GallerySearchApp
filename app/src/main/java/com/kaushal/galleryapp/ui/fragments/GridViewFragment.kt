@@ -72,11 +72,14 @@ class GridViewFragment : Fragment() {
     }
 
     private fun validateImages(dataList: List<Data>){
-        for (item in dataList.indices){
+        for (item in dataList.indices) {
             for (subItem in dataList[item].images.indices)
                 if(dataList[item].images[subItem].type?.let { isAnImage(it) } == true)
                     imagesList = dataList
-                    imageAdapter.differ.submitList(dataList)
+
+            // sorting list in reverse chronological order i.e displaying the oldest images at first.
+            val newList = dataList.sortedBy { it.datetime }
+            imageAdapter.differ.submitList(newList)
         }
     }
 

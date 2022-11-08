@@ -22,6 +22,8 @@ import com.kaushal.galleryapp.ui.adapters.ImagesListRecyclerAdapter
 import com.kaushal.galleryapp.ui.MainActivityViewModel
 import com.kaushal.galleryapp.util.Outcome
 import kotlinx.coroutines.launch
+import kotlin.time.DurationUnit
+import kotlin.time.toDuration
 
 class ListViewFragment : Fragment() {
 
@@ -62,7 +64,7 @@ class ListViewFragment : Fragment() {
             viewModel.searchedResult.collect {
                 when (it) {
                     is Outcome.Success ->
-                        if(it.isEmptyList) { clearResult() }
+                        if(it.isEmptyList) { clearResult() } // empty list found clear the existing list
                      else validateImages(it.data.data)
 
                     is Outcome.Empty ->  clearResult()
@@ -78,14 +80,19 @@ class ListViewFragment : Fragment() {
                 for (subItem in dataList[item].images.indices)
                     if (dataList[item].images[subItem].type?.let { isAnImage(it) } == true)
                         imagesList = dataList
-                imageAdapter.differ.submitList(dataList)
+
+            // sorting list in reverse chronological order i.e displaying the oldest images at first.
+            val newList = dataList.sortedBy { it.datetime }
+            imageAdapter.differ.submitList(newList)
         }
     }
 
+    // checking if the item is a image or not since the reponse contains mp4 videos as well.
     private fun isAnImage(type: String) : Boolean {
         return (type == "image/jpeg") || (type == "image/png")
     }
 
+    // clearing the existing list when no results found.
     private fun clearResult(){
         imagesList = emptyList()
         Toast.makeText(requireContext(), "No images found for this search", Toast.LENGTH_SHORT).show()
