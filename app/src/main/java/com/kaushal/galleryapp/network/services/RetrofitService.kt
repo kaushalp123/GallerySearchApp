@@ -9,6 +9,8 @@ object RetrofitService {
 
     var BASE_URL = "https://api.imgur.com/3/";
 
+
+    // this function returns the retrofit builder with the base url and other properties set
     fun getRetrofitInstance() : Retrofit {
 
         val mLoggingInterceptor = HttpLoggingInterceptor()

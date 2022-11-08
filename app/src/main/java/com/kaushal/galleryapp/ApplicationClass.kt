@@ -7,6 +7,6 @@ class ApplicationClass : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        AndroidThreeTen.init(this);
+        AndroidThreeTen.init(this) // initialise datetime conversion library
     }
 }

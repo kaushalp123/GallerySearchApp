@@ -56,7 +56,7 @@ class ImagesGridRecyclerAdapter :
         fun bind(item: Data) {
             Log.i("title", "is  ${item.images[0].title}")
             val title = item.images[0].title as CharSequence?
-            binding.txtTitle.text = title ?: "NA"
+            binding.txtTitle.text = title ?: "Unknown Title"
             binding.txtDate.text = item.images[0].datetime?.let { "Posted on ".plus(getFormattedTime(it)) }.toString()
             if (item.images.size > 1) {
                 binding.txtAdditionalImg.visibility = View.VISIBLE

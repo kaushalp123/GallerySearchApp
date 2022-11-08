@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
 
         binding.searchView.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
+
             override fun onQueryTextSubmit(query: String?): Boolean {
                 fetchImages(query)
                 return true
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     private fun fetchImages(query: String?) {
         try {
             lifecycleScope.launch {
-                viewModel.fetchImages(CLIENT_ID, query, 1)
+                viewModel.fetchImages(CLIENT_ID, query, 1) // fetch images by passing client id and default page no 1.
                 currentFocus?.let { hideKeyboard(it) }
             }
         } catch (ex: Exception) {
@@ -93,6 +94,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             R.id.action_switch_view -> {
+                // switching between the grid view and list view fragments on click of icon.
                 if (isListViewSelected) {
                     isListViewSelected = false
                     navController.navigate(R.id.grid)
@@ -114,6 +116,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         return false
     }
 
+    // hide keyboard when search is made.
     private fun hideKeyboard(view: View) {
         view?.apply {
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
