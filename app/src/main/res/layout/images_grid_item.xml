@@ -5,54 +5,62 @@
     android:id="@+id/item_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16sp"
+    android:paddingBottom="8dp"
+    android:layout_marginLeft="1.5dp"
+    android:layout_marginRight="1.5dp"
     tools:context=".ui.MainActivity">
 
-   <ImageView
-       android:id="@+id/img"
-       android:layout_width="60dp"
-       android:layout_height="60dp"
-       android:background="@drawable/img_card_view_bg"
-       app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/img_layout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/list_card_view_bg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="4dp">
 
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop" />
 
-   <TextView
-       android:id="@+id/txtAdditionalImg"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="+4"
-       android:textSize="12sp"
-       android:textColor="#ff0000"
-       app:layout_constraintBottom_toBottomOf="@+id/img"
-       app:layout_constraintHorizontal_bias="0.5"
-       app:layout_constraintLeft_toLeftOf="@id/img"
-       app:layout_constraintRight_toRightOf="@id/img"
-       app:layout_constraintTop_toTopOf="@id/img"
-       app:layout_constraintVertical_bias="0.55" />
+    </androidx.cardview.widget.CardView>
 
-   <TextView
-       android:id="@+id/txtTitle"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       tools:text="Cats"
-       android:textSize="16sp"
-       android:textColor="@color/design_dark_default_color_primary"
-       android:maxLines="1"
-       android:ellipsize="end"
-       app:layout_constraintTop_toBottomOf="@+id/img"
-       app:layout_constraintStart_toStartOf="@+id/img" />
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/design_dark_default_color_primary"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/img_layout"
+        app:layout_constraintTop_toBottomOf="@+id/img_layout"
+        tools:text="Cats" />
 
-   <TextView
-       android:id="@+id/txtDate"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       tools:text="01/06/1990"
-       android:textSize="16sp"
-       android:textColor="@color/design_dark_default_color_primary"
-       app:layout_constraintTop_toBottomOf="@+id/txtTitle"
-       app:layout_constraintStart_toStartOf="@+id/img"
-       android:paddingTop="5dp"/>
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp"
+        android:textColor="@color/design_dark_default_color_primary"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/img_layout"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+        tools:text="01/06/1990" />
+
+    <TextView
+        android:id="@+id/txtAdditionalImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="+4"
+        android:textColor="@color/design_dark_default_color_primary"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
