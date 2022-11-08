@@ -19,26 +19,26 @@ It is composed of the following three components:
 
 ### External Libraries used in this app
 
-#Coroutines
+# Coroutines
 Used to execute the block of code as a separate process by not blocking the current operations of the app.
 I chose this way because its very simple to implement and the code is very concise and performance wise also it is very effective.
 
-#Retrofit
+# Retrofit
 Used to make the Rest API calls
 Chose this library as i have used it in all my projects and very much familiar with it and also its very easy to implement and effective in handling different type of api api requests.
 
-#moshi library
+# moshi library
 This library is used to parse the json api response into custom model classes this is replacement for Gson converter library. It is much faster and uses less memory than Gson and its perfectly suited for Kotlin.
 
-#Glide
+# Glide
 Glide is used to load the images into our image views(image loader) form the url and is recommended by Google.
 
-#threetenbp
+# threetenbp
 ThreeTen-Backport provides a backport of the Java SE 8 date-time classes to Java SE 6 and 7. I have used this library to convert the time which is long format to our required format with local time zone.
 
-#App Flow
+# App Flow
 I have followed the single activity multiple fragment approach in this project, the search bar and the search button is in a main activity and the grid view and list view display of the images 
 are inside the respective fragments. The api call is made using coroutines inside the main activity and the state flow inside the view model gets the result and the two fragments uses observables which collects the result and display the results on the UI.
 
-###Note
+### Note
 UI design is given less importance here in this project as this is a test project, so UI may not look great.
