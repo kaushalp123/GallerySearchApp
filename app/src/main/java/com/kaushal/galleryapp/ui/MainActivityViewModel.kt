@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kaushal.galleryapp.data.model.Data
+import com.kaushal.galleryapp.data.model.ImageResponse
 import com.kaushal.galleryapp.data.repo.SearchImageRepository
 import com.kaushal.galleryapp.util.APIErrorHandler
 import com.kaushal.galleryapp.util.Outcome
@@ -15,11 +16,16 @@ import kotlinx.coroutines.launch
 
 class MainActivityViewModel constructor(
     private val searchImageRepository: SearchImageRepository,
-    private val stateHandle: SavedStateHandle,
     private val apiErrorHandler: APIErrorHandler
 ) : ViewModel() {
 
-    private val clientId: String
+/*    fun setState(clientId: String, searchedText: String, pageNo: Int){
+        stateHandle["clientId"] = clientId
+        stateHandle["searchedText"] = searchedText
+        stateHandle["pageNo"] = pageNo
+    }*/
+
+/*    private val clientId: String
         get() = stateHandle["clientId"]
             ?: throw IllegalArgumentException("client id is missing!")
 
@@ -28,16 +34,19 @@ class MainActivityViewModel constructor(
             ?: throw IllegalArgumentException("Search text is empty!")
 
     private val pageNo: Int
-        get() = stateHandle["pageNo"]!!
+        get() = stateHandle["pageNo"]!!*/
 
-    private val _searchedResult = MutableStateFlow<Outcome<Data>>(Outcome.Empty)
+    private val _searchedResult = MutableStateFlow<Outcome<ImageResponse>>(Outcome.Empty)
     val searchedResult = _searchedResult.asStateFlow()
 
-    fun fetchImages() {
+    fun fetchImages(clientId: String, searchedText: String?, pageNo: Int) {
+
+        if(searchedText.isNullOrEmpty()) throw IllegalArgumentException("Search text is empty!")
+
         viewModelScope.launch {
             try {
                 val result = searchImageRepository.getSearchedImages(pageNo, clientId, searchedText)
-                _searchedResult.success(result)
+                _searchedResult.success(result, result.data.isEmpty())
             } catch (e: java.lang.Exception) {
                _searchedResult.failure(e, apiErrorHandler.errMessage(e))
             }

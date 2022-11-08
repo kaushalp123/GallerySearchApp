@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    tools:context=".ui.MainActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/list_card_view_bg">
+
+            <LinearLayout
+                android:id="@+id/img_layout"
+                android:layout_width="70dp"
+                android:layout_height="75dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    tools:src="@drawable/placeholder_img" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:textColor="@color/design_dark_default_color_primary"
+                android:textSize="16sp"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@+id/img_layout"
+                app:layout_constraintTop_toBottomOf="@+id/img_layout"
+                app:layout_constraintTop_toTopOf="@+id/img_layout"
+                tools:text="Cats" />
+
+            <TextView
+                android:id="@+id/txtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/design_dark_default_color_primary"
+                android:textSize="16sp"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@+id/img_layout"
+                app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+                tools:text="01/06/1990" />
+
+            <TextView
+                android:id="@+id/txtAdditionalImg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/design_dark_default_color_primary"
+                android:textSize="16sp"
+                android:gravity="center"
+                app:layout_constraintStart_toEndOf="@+id/img_layout"
+                app:layout_constraintTop_toBottomOf="@+id/txtDate"
+                tools:text="View 4 more images"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
