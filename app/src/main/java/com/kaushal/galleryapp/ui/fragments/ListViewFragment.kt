@@ -7,23 +7,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.widget.ListViewCompat
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kaushal.galleryapp.R
 import com.kaushal.galleryapp.data.model.Data
-import com.kaushal.galleryapp.data.model.ImageResponse
 import com.kaushal.galleryapp.databinding.FragmentListViewBinding
-import com.kaushal.galleryapp.ui.MainActivity
+import com.kaushal.galleryapp.ui.activities.MainActivity
 import com.kaushal.galleryapp.ui.adapters.ImagesListRecyclerAdapter
 import com.kaushal.galleryapp.ui.MainActivityViewModel
 import com.kaushal.galleryapp.util.Outcome
 import kotlinx.coroutines.launch
-import kotlin.time.DurationUnit
-import kotlin.time.toDuration
 
 class ListViewFragment : Fragment() {
 

@@ -20,9 +20,10 @@ class MainActivityViewModel constructor(
 ) : ViewModel() {
 
     private val _searchedResult = MutableStateFlow<Outcome<ImageResponse>>(Outcome.Empty)
-    val searchedResult = _searchedResult.mapLatest { // always getting the latest state flow result and mapping it to null as an initial value
-        if (it is Outcome.Empty) null else it
-    }.stateIn(viewModelScope, started = SharingStarted.Lazily, initialValue = null)
+    val searchedResult =
+        _searchedResult.mapLatest { // always getting the latest state flow result and mapping it to null as an initial value
+            if (it is Outcome.Empty) null else it
+        }.stateIn(viewModelScope, started = SharingStarted.Lazily, initialValue = null)
 
     fun fetchImages(clientId: String, searchedText: String?, pageNo: Int) {
         try {
@@ -37,7 +38,8 @@ class MainActivityViewModel constructor(
 
             viewModelScope.launch {
                 try {   // api call
-                    val result = searchImageRepository.getSearchedImages(pageNo, clientId, searchedText)
+                    val result =
+                        searchImageRepository.getSearchedImages(pageNo, clientId, searchedText)
                     _searchedResult.success(result, result.data.isEmpty()) // data fetched
                 } catch (e: java.lang.Exception) {
                     _searchedResult.failure(e, apiErrorHandler.errMessage(e)) // error fetching data

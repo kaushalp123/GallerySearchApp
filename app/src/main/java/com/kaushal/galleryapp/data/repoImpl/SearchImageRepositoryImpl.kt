@@ -13,7 +13,8 @@ class SearchImageRepositoryImpl : SearchImageRepository {
         searchedText: String
     ): ImageResponse {
         val retrofitInstance = RetrofitService.getRetrofitInstance()
-        val apiService = retrofitInstance.create(ImagesAPI::class.java) // getting the retrofit instance
+        val apiService =
+            retrofitInstance.create(ImagesAPI::class.java) // getting the retrofit instance
 
         return apiService.getSearchedImages(pageNo, "Client-ID $clientId", searchedText) // api call
 

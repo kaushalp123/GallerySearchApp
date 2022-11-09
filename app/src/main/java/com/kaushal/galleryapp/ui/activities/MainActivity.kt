@@ -1,7 +1,6 @@
-package com.kaushal.galleryapp.ui
+package com.kaushal.galleryapp.ui.activities
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -9,22 +8,19 @@ import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.kaushal.galleryapp.R
-import com.kaushal.galleryapp.data.model.Data
 import com.kaushal.galleryapp.data.repoImpl.SearchImageRepositoryImpl
 import com.kaushal.galleryapp.databinding.ActivityMainBinding
-import com.kaushal.galleryapp.ui.adapters.ImagesListRecyclerAdapter
+import com.kaushal.galleryapp.ui.MainActivityViewModel
+import com.kaushal.galleryapp.ui.MainActivityViewModelFactory
 import com.kaushal.galleryapp.util.APIErrorHandler
-import com.kaushal.galleryapp.util.Outcome
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), MenuProvider {
@@ -40,7 +36,7 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         const val CLIENT_ID = "79698a75685bee3";
     }
 
-    lateinit var viewModel : MainActivityViewModel
+    lateinit var viewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,10 +44,12 @@ class MainActivity : AppCompatActivity(), MenuProvider {
         setContentView(binding.root)
         addMenuProvider(this)
 
-        viewModel= ViewModelProvider(this, MainActivityViewModelFactory(
-            SearchImageRepositoryImpl(),
-            APIErrorHandler()
-        ))[MainActivityViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this, MainActivityViewModelFactory(
+                SearchImageRepositoryImpl(),
+                APIErrorHandler()
+            )
+        )[MainActivityViewModel::class.java]
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
@@ -78,7 +76,11 @@ class MainActivity : AppCompatActivity(), MenuProvider {
     private fun fetchImages(query: String?) {
         try {
             lifecycleScope.launch {
-                viewModel.fetchImages(CLIENT_ID, query, 1) // fetch images by passing client id and default page no 1.
+                viewModel.fetchImages(
+                    CLIENT_ID,
+                    query,
+                    1
+                ) // fetch images by passing client id and default page no 1.
                 currentFocus?.let { hideKeyboard(it) }
             }
         } catch (ex: Exception) {

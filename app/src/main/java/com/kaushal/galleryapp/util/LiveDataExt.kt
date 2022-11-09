@@ -6,10 +6,16 @@ fun <T> MutableStateFlow<Outcome<T>>.loading() { // states that data is still lo
     value = Outcome.loading()
 }
 
-fun <T> MutableStateFlow<Outcome<T>>.success(data: T, isEmpty: Boolean = false) { // states the api call is success
+fun <T> MutableStateFlow<Outcome<T>>.success(
+    data: T,
+    isEmpty: Boolean = false
+) { // states the api call is success
     value = Outcome.success(data, isEmpty)
 }
 
-fun <T> MutableStateFlow<Outcome<T>>.failure(e: Throwable, errMsg: String) { // states that api call is failed
+fun <T> MutableStateFlow<Outcome<T>>.failure(
+    e: Throwable,
+    errMsg: String
+) { // states that api call is failed
     value = Outcome.failure(e, errMsg)
 }

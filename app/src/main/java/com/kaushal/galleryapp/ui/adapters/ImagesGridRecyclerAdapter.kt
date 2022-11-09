@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kaushal.galleryapp.data.model.Data
 import com.kaushal.galleryapp.databinding.ImagesGridItemBinding
-import com.kaushal.galleryapp.databinding.ImagesListItemBinding
 import org.threeten.bp.Instant
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.ZoneId
@@ -33,7 +32,10 @@ class ImagesGridRecyclerAdapter :
 
     val differ = AsyncListDiffer(this, Callback())
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImagesGridRecyclerAdapter.ImageViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ImagesGridRecyclerAdapter.ImageViewHolder {
         val binding = ImagesGridItemBinding
             .inflate(LayoutInflater.from(parent.context), parent, false)
         return ImageViewHolder(binding)
@@ -43,7 +45,10 @@ class ImagesGridRecyclerAdapter :
         return differ.currentList.size
     }
 
-    override fun onBindViewHolder(holder: ImagesGridRecyclerAdapter.ImageViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ImagesGridRecyclerAdapter.ImageViewHolder,
+        position: Int
+    ) {
         val article = differ.currentList[position]
         holder.bind(article)
     }
@@ -57,7 +62,8 @@ class ImagesGridRecyclerAdapter :
             Log.i("title", "is  ${item.images[0].title}")
             val title = item.images[0].title as CharSequence?
             binding.txtTitle.text = title ?: "Unknown Title"
-            binding.txtDate.text = item.images[0].datetime?.let { "Posted on ".plus(getFormattedTime(it)) }.toString()
+            binding.txtDate.text =
+                item.images[0].datetime?.let { "Posted on ".plus(getFormattedTime(it)) }.toString()
             if (item.images.size > 1) {
                 binding.txtAdditionalImg.visibility = View.VISIBLE
                 binding.txtAdditionalImg.text = "view +${item.images.size} more images"

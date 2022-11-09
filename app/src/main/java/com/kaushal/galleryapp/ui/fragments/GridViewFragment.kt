@@ -8,16 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.kaushal.galleryapp.R
 import com.kaushal.galleryapp.data.model.Data
 import com.kaushal.galleryapp.databinding.FragmentGridViewBinding
-import com.kaushal.galleryapp.databinding.FragmentListViewBinding
-import com.kaushal.galleryapp.ui.MainActivity
+import com.kaushal.galleryapp.ui.activities.MainActivity
 import com.kaushal.galleryapp.ui.MainActivityViewModel
 import com.kaushal.galleryapp.ui.adapters.ImagesGridRecyclerAdapter
-import com.kaushal.galleryapp.ui.adapters.ImagesListRecyclerAdapter
 import com.kaushal.galleryapp.util.Outcome
 import com.kaushal.galleryapp.util.RecyclerViewGridSpacing
 import kotlinx.coroutines.launch

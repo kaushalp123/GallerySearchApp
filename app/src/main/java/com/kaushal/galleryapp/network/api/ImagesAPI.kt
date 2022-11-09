@@ -11,8 +11,8 @@ interface ImagesAPI {
 
     @GET("gallery/search/top/week/{page}")
     suspend fun getSearchedImages(
-        @Path("page") pageNo : Int,
-        @Header("Authorization") clientId : String,
-        @Query("q") searchText : String
-    ) : ImageResponse
+        @Path("page") pageNo: Int,
+        @Header("Authorization") clientId: String,
+        @Query("q") searchText: String
+    ): ImageResponse
 }

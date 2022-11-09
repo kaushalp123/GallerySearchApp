@@ -11,7 +11,7 @@ object RetrofitService {
 
 
     // this function returns the retrofit builder with the base url and other properties set
-    fun getRetrofitInstance() : Retrofit {
+    fun getRetrofitInstance(): Retrofit {
 
         val mLoggingInterceptor = HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
