@@ -1,5 +1,5 @@
-# Cab9 Driver App V3 Android
-### GALLERY APP WHICH DISPLAYS TOP IMAGES OF THE WEEK FROM THE IMGUR GALLERY BASED ON USER SEARCH
+# Gallery APP Android
+### A GALLERY APP WHICH DISPLAYS TOP IMAGES OF THE WEEK FROM THE IMGUR GALLERY BASED ON USER SEARCH
 
 ### Code Language
 This project is developed in native android using Kotlin language.
